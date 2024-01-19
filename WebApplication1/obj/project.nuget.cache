@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2i2RL9QmPpJHgygctqyl0O/8vXhQr5OXx7rKo2cKBaDNsExsyTNQwOmRikx+xxh7hC7NtZURU3elOwoyCSVxXA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HOME\\Desktop\\tova\\WebApplication1\\WebApplication1\\NetInterview.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HOME\\.nuget\\packages\\system.servicemodel.syndication\\8.0.0\\system.servicemodel.syndication.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Search News</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <input type="text" id="searchKey" placeholder="Enter a search key">
+  <button id="searchButton">Search</button>
+<div style="
+    border: 1px solid red;
+    height: 200px; /* Use a fixed height in pixels */
+    max-width: 300px;
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+    z-index: 999;"
+    id="resultBody">
+  </div>
+  <div style="
+    border: 1px solid blue;
+    height: 200px; /* Use a fixed height in pixels */
+    max-width: 300px;
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+    z-index: 999;"
+    id="resultLink">
+  </div>
+ 
+  <ul  id="searchResults"></ul>
+    @foreach (var item in Model)
+  {
+    <li>
+      <a href="#" class="searchItem" data-title="@item">@item</a>
+    </li>
+
+  }
+  <script>
+      $(document).ready(function() {
+      $('#searchButton').on('click', function() {
+        var searchKey = $('#searchKey').val();
+        $.ajax({
+          url: '/Home/Details?title=' + searchKey, 
+          method: 'GET',
+          dataType: 'json',
+           success: function(response) {
+            $('#resultBody').html('<p>Body: ' + response.body + '</p>');
+            $('#resultLink').html('<p>Link: ' + response.link + '</p>');
+          },
+          error: function() {
+            console.log('Error searching news.');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
